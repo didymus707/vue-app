@@ -1,9 +1,13 @@
 <template>
   <div class="top">
-    <h1>{{ name }} ({{ ego }})</h1>
-    <button @click="changeName('Andrea'), changeEgo('engineer')">
-      Click
-    </button>
+    <p>Your name: {{ name }}</p>
+    <input type="text" @input="getInput($event, 'Johnson')" />
+    <!-- lock this counter after first render -->
+    <p v-once>Initial value: {{ counter }}</p>
+    <p>Updated value: {{ counter }}</p>
+
+    <button @click="increment">Increment</button>
+    <button @click="decrement">Decrement</button>
   </div>
 </template>
 
@@ -11,16 +15,19 @@
 export default {
   data() {
     return {
-      name: "KoderHq",
-      ego: "guy",
+      name: "",
+      counter: 10,
     };
   },
   methods: {
-    changeName(name) {
-      this.name = name;
+    getInput(event, lastName) {
+      this.name = event.target.value + " " + lastName;
     },
-    changeEgo(ego) {
-      this.ego = ego;
+    increment() {
+      this.counter++;
+    },
+    decrement() {
+      this.counter--;
     },
   },
 };
