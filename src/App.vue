@@ -1,49 +1,34 @@
 <template>
   <div class="top">
-    <h1>KoderHq</h1>
+    <h1>{{ name }} ({{ ego }})</h1>
+    <button @click="changeName('Andrea'), changeEgo('engineer')">
+      Click
+    </button>
   </div>
-
-  <p>{{ greeting('Didy') }}</p>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      name: "Didy",
+      name: "KoderHq",
+      ego: "guy",
     };
   },
   methods: {
-    greeting: (name) => {
-      return "Hello " + name;
+    changeName(name) {
+      this.name = name;
+    },
+    changeEgo(ego) {
+      this.ego = ego;
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 .top {
-  display: flex;
-  width: 100%;
-  color: cadetblue;
-  justify-content: center;
-}
-.btn {
-  margin-left: 8px;
-}
-.valid {
   color: forestgreen;
 }
-.invalid {
-  color: crimson;
-}
-.text-22 {
-  font-size: 16px;
-}
-.bold {
-  font-weight: bold;
-}
-.italic {
-  font-style: italic;
-}
 </style>
+>
