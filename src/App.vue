@@ -2,18 +2,21 @@
   <div class="top">
     <h1>KoderHq</h1>
   </div>
-  <p>Moustache syntax wraps the data property in double curly braces.</p>
 
-  <p>The resulting output will be the value of the data property.</p>
-  <p>Example: {{ name }}</p>
+  <p>{{ greeting('Didy') }}</p>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      name: "John Doe",
+      name: "Didy",
     };
+  },
+  methods: {
+    greeting: (name) => {
+      return "Hello " + name;
+    },
   },
 };
 </script>
@@ -21,9 +24,9 @@ export default {
 <style>
 .top {
   display: flex;
-  justify-content: center;
   width: 100%;
   color: cadetblue;
+  justify-content: center;
 }
 .btn {
   margin-left: 8px;
