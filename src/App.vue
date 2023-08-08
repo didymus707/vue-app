@@ -1,6 +1,8 @@
 <template>
+  <div class="top">
+    <h1>KoderHq</h1>
+  </div>
   <p>Moustache syntax wraps the data property in double curly braces.</p>
-  <p v-pre>Example: {{ name }}</p>
 
   <p>The resulting output will be the value of the data property.</p>
   <p>Example: {{ name }}</p>
@@ -10,16 +12,18 @@
 export default {
   data() {
     return {
-      name: 'John Doe'
-    }
-  }
-}
+      name: "John Doe",
+    };
+  },
+};
 </script>
 
 <style>
 .top {
   display: flex;
+  justify-content: center;
   width: 100%;
+  color: cadetblue;
 }
 .btn {
   margin-left: 8px;
