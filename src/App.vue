@@ -1,11 +1,13 @@
 <template>
   <div class="top">
-    <h1>Full Name: {{ firstName }} {{ lastName }}</h1>
+    <h1>Full Name: {{ fullName }}</h1>
     <label class="margin">First Name: {{ firstName }}</label>
     <input class="margin input" type="text" v-model="firstName" />
     <label class="margin">Last Name: {{ lastName }}</label>
     <input class="margin input" type="text" v-model="lastName" />
   </div>
+  <p>{{ num }}</p>
+  <button @click="changeFullName">Change Name</button>
 </template>
 
 <script>
@@ -16,7 +18,23 @@ export default {
       lastName: "",
     };
   },
-  
+  methods: {
+    changeFullName() {
+      this.fullName = "Chris Pratt";
+    },
+  },
+  computed: {
+    fullName: {
+      get() {
+        return this.firstName + " " + this.lastName;
+      },
+      set(value) {
+        const names = value.split(" ");
+        this.firstName = names[0];
+        this.lastName = names[1];
+      },
+    },
+  },
 };
 </script>
 
