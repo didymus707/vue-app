@@ -1,27 +1,18 @@
 <template>
   <div class="top">
-    <h1>Full Name: {{ fullName }}</h1>
-    <label class="margin">First Name: {{ firstName }}</label>
-    <input class="margin input" type="text" v-model="firstName" />
-    <label class="margin">Last Name: {{ lastName }}</label>
-    <input class="margin input" type="text" v-model="lastName" />
+    <p>Counter: {{ count }}</p>
+
+    <button @click="count++">Increment</button>
+    <button @click="count--">Decrement</button>
   </div>
-  <p>{{ num }}</p>
-  <button @click="changeFullName">Change Name</button>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      firstName: "",
-      lastName: "",
+      count: 0,
     };
-  },
-  methods: {
-    changeFullName() {
-      this.fullName = "Chris Pratt";
-    },
   },
   computed: {
     fullName: {
@@ -33,6 +24,12 @@ export default {
         this.firstName = names[0];
         this.lastName = names[1];
       },
+    },
+  },
+  watch: {
+    count(newValue, oldValue) {
+      if (newValue > oldValue && newValue === 5)
+        alert("Increasing the volume past 5 may damage your hearing");
     },
   },
 };
