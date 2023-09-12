@@ -1,22 +1,10 @@
-<template>
-  <template v-for="user in filter" :key="user.name">
-    <p>{{ user.name }} is at the age where he can vote</p>
-  </template>
-</template>
-
 <script>
+import GreetingMessage from "./components/GreetingMessage";
+import ChildGreeting from "./components/ChildGreeting";
 export default {
-  data() {
-    return {
-      users: [
-        { name: "De", age: 33 },
-        { name: "Andre", age: 34 },
-        { name: "Yedlin", age: 29 },
-        { name: "Stefan", age: 18 },
-        { name: "Tanitoluwa", age: 7 },
-        { name: "Toluwalase", age: 7 },
-      ],
-    };
+  components: {
+    GreetingMessage,
+    ChildGreeting,
   },
   computed: {
     filter() {
@@ -25,3 +13,11 @@ export default {
   },
 };
 </script>
+
+<template>
+  <greeting-message />
+  <child-greeting firstName="Scott" lastName="Lang" />
+  <child-greeting firstName="Peter" lastName="Parker" />
+  <child-greeting firstName="Tony" lastName="Stark" />
+  <child-greeting firstName="Thor" lastName="Son of Odin" />
+</template>
